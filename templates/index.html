@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerología Predictiva</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Numerología Predictiva</h1>
+        
+        <form method="POST">
+            <label for="fecha_nac">Fecha de Nacimiento (DD/MM/AAAA):</label>
+            <input type="text" name="fecha_nac" id="fecha_nac" required>
+            
+            <label for="ano_pred">Año de Predicción:</label>
+            <input type="number" name="ano_pred" id="ano_pred" required>
+            
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if ano_personal %}
+        <div class="results">
+            <h2>Resultados:</h2>
+            <p>Primera Parte - TU AÑO</p>
+            <p>Año Personal: {{ ano_personal }}</p>
+            <p>Dígito de Edad: {{ digito_edad }}</p>
+            <p>Armónico: {{ armonico }} - {{ arcano_armonico }}</p>
+            <br>
+            <p>Segunda Parte - SUS ETAPAS</p>
+            <p>Primera Etapa: {{ primera_etapa }} - {{ arcano_primera_etapa }}</p>
+            <p>Segunda Etapa: {{ segunda_etapa }} - {{ arcano_segunda_etapa }}</p>
+            <p>Tercera Etapa: {{ tercera_etapa }} - {{ arcano_tercera_etapa }}</p>
+            <br>
+            Puedes brindarme una predicción profesional y completa combinando Numerología y Tarot y en base a esta Interpretación General:
+            <br>
+            Este año estará marcado por la energía del número {{ ano_personal }} como influencia principal, combinada con el digito de tu edad {{ digito_edad }} y la guía espiritual del Arcano {{ armonico }} - {{ arcano_armonico }}.
+            <br>
+            Las tres etapas del año muestran una progresión a través de los Arcanos del Tarot:
+            - Primera Etapa: {{ primera_etapa }} - {{ arcano_primera_etapa }}
+            - Segunda Etapa: {{ segunda_etapa }} - {{ arcano_segunda_etapa }}
+            - Tercera Etapa: {{ tercera_etapa }} - {{ arcano_tercera_etapa }}
+
+        </div>
+        {% endif %}
+        
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
